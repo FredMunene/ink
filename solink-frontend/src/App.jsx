@@ -8,37 +8,40 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const CONTRACT_ADDRESS = '0x09c1E485bE4D85BD8ad4D678dCb0F43A08254e4f'
+  const CONTRACT_ADDRESS = '0x996AAdCB6Df82386c56c05CC691d4c96DE8fd38A'
 
   // Network configuration
   const NETWORK_CONFIG = {
-    chainId: '0x190f1b46', // 420420422 in hex (correct value)
+    chainId: '0x190f1b46', // 1111 in hex (Polkadot Hub Testnet)
     chainName: 'Paseo PassetHub',
     rpcUrls: ['https://testnet-passet-hub-eth-rpc.polkadot.io'],
     nativeCurrency: {
       name: 'PAS',
       symbol: 'PAS',
-      decimals: 18,
+      decimals: 18, // EVM-compatible decimals
     },
   }
 
-  // ABI based on actual ink! contract selectors from flipper.json
+  // Solidity ABI generated from ink! contract
   const CONTRACT_ABI = [
     {
-      "inputs": [],
-      "name": "flip",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function",
-      "selector": "0x633aa551"
+      "type": "constructor",
+      "inputs": [{"name": "init_value", "type": "bool"}],
+      "stateMutability": "nonpayable"
     },
     {
-      "inputs": [],
-      "name": "get",
-      "outputs": [{"name": "", "type": "bool"}],
-      "stateMutability": "view",
       "type": "function",
-      "selector": "0x2f865bd9"
+      "name": "flip",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "get",
+      "inputs": [],
+      "outputs": [{"name": "", "type": "bool"}],
+      "stateMutability": "view"
     }
   ]
 
