@@ -12,7 +12,7 @@ function App() {
 
   // Network configuration
   const NETWORK_CONFIG = {
-    chainId: '0x190f1b46', // 1111 in hex (Polkadot Hub Testnet)
+    chainId: '0x190f1b46', // (Polkadot Hub Testnet)
     chainName: 'Paseo PassetHub',
     rpcUrls: ['https://testnet-passet-hub-eth-rpc.polkadot.io'],
     nativeCurrency: {

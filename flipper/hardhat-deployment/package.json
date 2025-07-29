@@ -8,5 +8,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@parity/hardhat-polkadot": "^0.1.9",
+    "dotenv": "^17.2.1",
+    "hardhat": "^2.26.1",
+    "run-container": "^2.0.12",
+    "solc": "0.7.3"
+  }
 }

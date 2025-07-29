@@ -6,7 +6,7 @@ const path = require('path');
 const NETWORK_CONFIG = {
   name: 'Polkadot Hub Testnet',
   rpcUrl: 'https://testnet-passet-hub-eth-rpc.polkadot.io',
-  chainId: 1111
+  chainId: 420420422
 };
 
 async function deployContract() {
@@ -38,6 +38,7 @@ async function deployContract() {
 
     // Load contract files
     const abiPath = path.join(__dirname, 'target/ink/flipper.abi');
+    
     const bytecodePath = path.join(__dirname, 'target/ink/flipper.polkavm');
     
     if (!fs.existsSync(abiPath) || !fs.existsSync(bytecodePath)) {
@@ -46,14 +47,14 @@ async function deployContract() {
       process.exit(1);
     }
 
-    const abi = JSON.parse(fs.readFileSync(abiPath, 'utf8'));
+    const abi_ = JSON.parse(fs.readFileSync(abiPath, 'utf8'));
     const bytecode = '0x' + fs.readFileSync(bytecodePath).toString('hex');
     
     console.log('📄 Contract ABI loaded');
     console.log('💾 Contract bytecode loaded');
 
     // Create contract factory
-    const contractFactory = new ethers.ContractFactory(abi, bytecode, wallet);
+    const contractFactory = new ethers.ContractFactory(abi_.output.abi, bytecode, wallet);
     
     // Deploy with constructor argument (initial value: true)
     console.log('🔄 Deploying contract...');
