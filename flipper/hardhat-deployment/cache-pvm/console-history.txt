@@ -1,0 +1,3 @@
+exit
+(await ethers.provider.getBalance(await ethers.getSigners()[0].getAddress())
+(await ethers.getSigners())[0].getAddress()
